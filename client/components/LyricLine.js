@@ -3,7 +3,7 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { SONG_LIST } from './SongList';
+import { SONG_LIST } from '../queries';
 
 const ADD_LIKES = gql`
   mutation ADD_LIKES($id: ID!) {
