@@ -1,0 +1,6 @@
+.collection-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    cursor: pointer;
+}
