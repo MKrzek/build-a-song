@@ -14,7 +14,6 @@ import SongDetail from './components/SongDetail';
 const link = new HttpLink({ uri: 'http://localhost:4000/graphql' });
 const cache = new InMemoryCache();
 const client = new ApolloClient({ link, cache });
-console.log('client', client);
 
 const Root = () => (
   <div className="container">

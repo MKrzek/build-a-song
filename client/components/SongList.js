@@ -18,7 +18,6 @@ const SongList = () => (
   <div>
     <Query query={SONG_LIST}>
       {({ data, error, loading }) => {
-        console.log('initialData', loading, error, data);
         if (loading) {
           return <div>Loading...</div>;
         }
@@ -26,7 +25,6 @@ const SongList = () => (
           return <div>Error</div>;
         }
         if (data) {
-          console.log('songs', data.songs);
           return (
             <div>
               <ul className="collection">

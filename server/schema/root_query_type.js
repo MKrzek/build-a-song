@@ -15,7 +15,6 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(SongType),
       resolve: async () => {
         const songs = await Song.find({});
-        console.log('sssssss', songs);
         return songs;
       },
     },
