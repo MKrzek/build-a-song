@@ -27,6 +27,14 @@ const LyricLine = ({ lyric }) => {
       refetchQueries={[{ query: SONG_LIST }]}
       mutation={ADD_LIKES}
       variables={{ id: lyric.id }}
+      optimisticResponse={{
+        __typename: 'Mutation',
+        likeLyric: {
+          id: lyric.id,
+          __typename: 'LyricType',
+          likes: lyric.likes + 1,
+        },
+      }}
     >
       {(likeLyric, { error }) => (
         <li className="collection-item" key={lyric.id}>
