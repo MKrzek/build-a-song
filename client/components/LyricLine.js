@@ -38,7 +38,7 @@ const LyricLine = ({ lyric }) => {
             onKeyDown={() => addLikes(likeLyric)}
             onClick={() => addLikes(likeLyric)}
           >
-            Likes: {lyric.likes}
+            <i className="material-icons">thumb_up</i> {lyric.likes}
           </span>
         </li>
       )}
