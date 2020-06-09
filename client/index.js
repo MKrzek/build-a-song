@@ -7,7 +7,7 @@ import { HttpLink } from 'apollo-link-http';
 import './style/style.css';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import SongList from './components/SongList';
-import App from './components/App';
+
 import SongCreate from './components/SongCreate';
 import SongDetail from './components/SongDetail';
 
@@ -21,7 +21,6 @@ const Root = () => (
     <ApolloProvider client={client}>
       <Router>
         <Switch>
-          <Route exact path="/" component={App} />
           <Route exact path="/songs" component={SongList} />
           <Route exact path="/songs-new" component={SongCreate} />
           <Route exact path="/songs/:id" component={SongDetail} />
