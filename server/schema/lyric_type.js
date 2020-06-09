@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 const mongoose = require('mongoose');
 const graphql = require('graphql');
 
