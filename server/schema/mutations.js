@@ -1,16 +1,49 @@
 const graphql = require('graphql');
 
-const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLNonNull } = graphql;
 const mongoose = require('mongoose');
 
 const Song = mongoose.model('song');
 const Lyric = mongoose.model('lyric');
 const SongType = require('./song_type');
 const LyricType = require('./lyric_type');
+const { UserType, UserInputType } = require('./user_type');
+const AuthService = require('../services/auth');
 
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
+    signup: {
+      type: UserType,
+      args: {
+        input: { type: new GraphQLNonNull(UserInputType) },
+      },
+      resolve: (parentValue, { input }, req) => {
+        const { email, password } = input;
+        console.log('signup', input);
+        return AuthService.signup({ email, password, req });
+      },
+    },
+    logout: {
+      type: UserType,
+      resolve: (parentValue, args, req) => {
+        const { user } = req;
+        console.log('reqqq', req.user);
+        req.logout();
+        return user;
+      },
+    },
+    login: {
+      type: UserType,
+      args: { input: { type: new GraphQLNonNull(UserInputType) } },
+
+      resolve: (parentValue, { input }, req) => {
+        const { email, password } = input;
+        console.log('login', email, password);
+        return AuthService.login({ email, password, req });
+      },
+    },
+
     addSong: {
       type: SongType,
       args: {
