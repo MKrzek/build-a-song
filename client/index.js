@@ -10,10 +10,11 @@ import SongList from './components/SongList';
 
 import SongCreate from './components/SongCreate';
 import SongDetail from './components/SongDetail';
-import App from './components/App';
+import Landing from './components/Landing';
 import Login from './components/Login';
 import Signin from './components/Signin';
 import Logout from './components/Logout';
+import App from './components/App';
 
 const link = new HttpLink({ uri: 'http://localhost:4000/graphql' });
 const cache = new InMemoryCache();
@@ -23,8 +24,9 @@ const Root = () => (
   <div className="container">
     <ApolloProvider client={client}>
       <Router>
+        <App />
         <Switch>
-          <Route exact path="/" component={App} />
+          <Route exact path="/" component={Landing} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/logout" component={Logout} />
