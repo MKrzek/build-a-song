@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const App = () => (
+const App = ({ children }) => (
   <div>
     <nav>
       <div className="nav-wrapper">
@@ -19,9 +20,7 @@ const App = () => (
         </ul>
       </div>
     </nav>
-
-    <h3>Build Yourself A Song</h3>
+    <div>{children} </div>
   </div>
 );
-
 export default App;
