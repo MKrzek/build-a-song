@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 import { Link } from 'react-router-dom';
-import { SONG_LIST } from './SongList';
+import { SONG_LIST } from '../queries';
 
 const CREATE_SONG = gql`
   mutation CREATE_SONG($title: String) {
