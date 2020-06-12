@@ -15,6 +15,7 @@ import Login from './components/Login';
 import Signin from './components/Signin';
 import Logout from './components/Logout';
 import App from './components/App';
+import requireAuth from './components/requireAuth';
 
 const link = new HttpLink({ uri: 'http://localhost:4000/graphql' });
 const cache = new InMemoryCache();
@@ -30,9 +31,9 @@ const Root = () => (
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/logout" component={Logout} />
-          <Route exact path="/songs" component={SongList} />
-          <Route exact path="/songs-new" component={SongCreate} />
-          <Route exact path="/songs/:id" component={SongDetail} />
+          <Route exact path="/songs" component={requireAuth(SongList)} />
+          <Route exact path="/songs-new" component={requireAuth(SongCreate)} />
+          <Route exact path="/songs/:id" component={requireAuth(SongDetail)} />
         </Switch>
       </Router>
     </ApolloProvider>
