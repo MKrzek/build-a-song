@@ -46,7 +46,7 @@ const Login = ({ history }) => {
     <div>
       <h3>Login</h3>
       <form onSubmit={e => handleSubmit(e)}>
-        <fieldset>
+        <fieldset disabled={loading}>
           <label htmlFor="email">
             {' '}
             Email
