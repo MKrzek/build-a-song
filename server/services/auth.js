@@ -77,7 +77,6 @@ function signup({ email, password, req }) {
     .then(
       res =>
         new Promise((resolve, reject) => {
-          console.log('ressss', res);
           req.logIn(user, err => {
             if (err) {
               reject(err);
